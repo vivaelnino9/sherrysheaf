@@ -1,0 +1,225 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+body {
+    font-family: 'Carrois Gothic', sans-serif;
+}
+small {
+    font-size: 14px;
+}
+div.row img {
+    margin-bottom: 15px;
+    margin-left: 50px;
+    margin-top: 15px;
+    margin-right: 50px;
+    display: inline-block;
+    border: 0px;
+}
+a#display {
+    border: 1px;
+}
+a {
+    vertical-align: top;
+    text-align: center;
+    color: transparent;
+    border: 1px;
+}
+a:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+/* image border */
+
+img#img_wrapper:hover, a#a_wrapper:hover {
+    transition: 1s;
+    -moz-box-shadow: 0 0 20px #ccc;
+    -webkit-box-shadow: 0 0 20px #ccc;
+    box-shadow: 0 0 20px #ccc;
+}
+
+/* page label */
+
+#label {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/* user welcome */
+
+#welcome {
+    font-size: 14px;
+    font-weight: 600;
+}
+#title .text, a.gallery-sample p.text {
+    position: relative;
+    bottom: 40px;
+    visibility: hidden;
+    text-align: center;
+}
+#title:hover .text, a.gallery-sample:hover p.text {
+    transition: 2s;
+    visibility: visible;
+    color: #000;
+    font-weight: 100;
+}
+
+/* button */
+
+.btn-warning {
+    color: #b7b7b7;
+    background-color: #484848;
+    border-color: #484848;
+}
+.btn-warning.focus, .btn-warning:focus, .btn-warning:hover {
+    background-color: #7e7e7e;
+    border-color: #7e7e7e;
+}
+
+/* image carousel */
+
+.block {
+    /* carousel width */
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.carousel-inner, .carousel, .item, .container, .fill {
+    width: 100%;
+}
+.carousel-control.right {
+    right: 30px;
+}
+.carousel-inner>.active {
+    width: 100%;
+    left: 0;
+}
+.carousel-control.right {
+    /* right button */
+    width: 10;
+    right: 0;
+}
+.carousel-control.left {
+    /* left button */
+    width: 10;
+    right: 0;
+}
+.carousel-inner>.active>img, .carousel-inner>.item>img {
+    width: 100%;
+    height: 580px;
+}
+
+/* contact page */
+
+.contact {
+    color: #6a6a6a;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    position: fixed;
+    width: 400px;
+    left: 500px;
+    top: 250px
+}
+.col-md-12 {
+    padding-left: 100px;
+}
+
+/* footer */
+
+.footer {
+    width: 100%;
+    background-color: #bdbdbd;
+    width: 100%;
+    height: 38px;
+    background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    position: fixed;
+    text-align: center;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 10px;
+}
+
+/* login form*/
+
+.form-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+}
+.form-control {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 2px;
+}
+.form-submit {
+    margin-top: 10px;
+}
+
+/* navbar */
+
+.navbar-default {
+    /* navbar editing */
+    background-color: #484848;
+    height: 86px;
+}
+.navbar-default .navbar-nav>li>a {
+    /* navbar font editing */
+    color: #999999;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    /* highlight when hover */
+    color: #fff;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover {
+    /* highlight active link */
+    color: #fff;
+    background-color: transparent;
+}
+.navbar-nav {
+    /* navbar positioning */
+    position: absolute;
+    left: 650px;
+    top: 40px;
+    width: 1000px;
+    z-index: 2;
+    overflow: visible;
+    text-transform: none;
+    font-variant: normal;
+    letter-spacing: 0.22px
+}
+.row {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* NEW */
+
+.gallery-sample {
+    color: #333;
+}
+.page-header, .page-header a {
+    font-size: 18px;
+    color: #333;
+}
+p.sub-header {
+    font-size: 15px;
+}
+.hover:link#active, .hover:hover {
+    background-color: #d3d3d3;
+}
+p.page-header, p.sub-header {
+    text-align: center;
+}
+div.row a {
+    display: inline-block;
+}
