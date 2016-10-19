@@ -17,11 +17,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav"></ul>
       <ul class="nav navbar-nav navbar-right">
+        <li class={% if request.path == '/' %}"active"{% endif %}><a href="{% url 'index' %}">HOME</a></li>
         <li><a href="#">PRODUCTS</a></li>
-        <li><a href="#">CONCEPTS</a></li>
-        <li><a href="#">ABOUT US</a></li>
-        <li><a href="#">CONTACT</a></li>
-        <li><a href="#">PRESS</a></li>
+        <li class={% if request.path == '/concepts/' %}"active"{% endif %}><a href="{% url 'concepts' %}">CONCEPTS</a></li>
+        <li class={% if request.path == '/about/' %}"active"{% endif %}><a href="{% url 'about' %}">ABOUT US</a></li>
+        <li class={% if request.path == '/contact/' %}"active"{% endif %}><a href="{% url 'contact' %}">CONTACT</a></li>
+        <li class={% if request.path == '/press/' %}"active"{% endif %}><a href="{% url 'press' %}">PRESS</a></li>
         <li><a href="http://www.facebook.com/pages/Sherry-Sheaf-and-Co-Inc/185365518163921?fref=ts" target="_blank">FACEBOOK</a></li>
       </ul>
     </div>

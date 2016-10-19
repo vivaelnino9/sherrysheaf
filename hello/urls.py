@@ -24,8 +24,8 @@ urlpatterns = [
     #
     # # url(r'^products/$', GalleryListView.as_view(template_name="collections.html"), name='product'),
     # # url(r'^products/$', views.ProductListView.as_view(), name='product_min'),
-    # url(r'^concepts/$', views.concepts, name='concepts'),
-    # url(r'^about/$', views.about, name='about'),
-    # url(r'^contact/$', views.contact, name='contact'),
-    # url(r'^press/$', views.press, name='press'),
+    url(r'^concepts/$', views.concepts, name='concepts'),
+    url(r'^about/$', views.about, name='about'),
+    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^press/$', views.press, name='press'),
 ]
