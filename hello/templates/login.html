@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load bootstrap3 %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="form-wrapper">
+  <h1>Please login</h1>
+  <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <input class="form-control" type="text" name="username" placeholder="Username" required autofocus/>
+      <input class="form-control" type="password" name="password" placeholder="Password" required/>
+      <button class="form-submit btn btn-lg btn-primary btn-block" type="submit">Login</button>
+  </form>
+</div>
+{% endblock %}

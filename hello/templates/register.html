@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load bootstrap3 %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="form-wrapper">
+  {% if registered %}
+  <h1>Thank you for registering</h1>
+  <h4>You can now <a href="{% url 'login' %}">login</a>.</h4>
+  {% else %}
+  <h1>User registration</h1>
+  <form method="post" action="{% url "register" %}">
+    <form method="post" action="{% url "register" %}">
+        {% csrf_token %}
+        <input class="form-control" type="text" name="first_name" placeholder="First name" required autofocus/>
+        <input class="form-control" type="text" name="last_name" placeholder="Last name" required/>
+        <input class="form-control" type="text" name="username" placeholder="Username" required/>
+        <input class="form-control" type="email" name="email" placeholder="Email" required/>
+        <input class="form-control" type="password" name="password" placeholder="Password" required/>
+        <button class="form-submit btn btn-lg btn-primary btn-block" type="submit" name="submit">Register</button>
+    </form>
+  </form>
+</div>
+{% endif %}
+{% endblock %}
