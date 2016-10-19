@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load i18n staticfiles thumbnail %}
+
+
+{% block bootstrap3_title %}SHERRY SHEAF | {% block title %}PRODUCTS{% endblock %}{% endblock %}
+
+{% block content %}
+
+
+
+	<!-- <div class="row">
+		<div class="pull-left" id="label">PRODUCTS</div>
+	</div> -->
+
+	<div class="row">
+		<p class="page-header">
+			<a class="hover" href="{% url 'collections' %}"id={% if 'collections' in request.path %}"active"{% endif %}
+			>{% trans "View by Collection" %}
+				</a>
+			/
+			<a class ="hover" href="{% url 'categories' %}"id={% if 'categories' in request.path %}"active"{% endif %}
+			>{% trans "View by Category" %}</a>
+
+	<div class="row">
+		<!-- add all collection/category names but have current gallery.title highlighted -->
+			<p class="sub-header">{{ gallery.title }}</p>
+	</div>
+	<div class="row">
+		<div class="col-md-12" >
+		    {% for photo in gallery.photos.all %}
+		        <a id="title" href="{{ photo.get_absolute_url }}">
+							<img id="img_wrapper" src="{{ photo.image|thumbnail_url:'thumbnail' }}" class="thumbnail" alt="{{ photo.title }}">
+								 <p class="text">{{ photo.title }}</p>
+		        </a>
+		    {% endfor %}
+		</div>
+		<div>
+			{% if gallery.collection %}
+				<a class="btn btn-default" href="{% url 'collections' %}">{% trans "back to collections" %}
+			{% else %}
+				<a class="btn btn-default" href="{% url 'categories' %}" >{% trans "back to categories" %}
+			{% endif %}
+				</a>
+		</div>
+
+{% endblock %}

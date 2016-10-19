@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load i18n staticfiles thumbnail %}
+
+
+{% block bootstrap3_title %}SHERRY SHEAF | {% block title %}PRODUCTS{% endblock %}{% endblock %}
+
+
+
+{% block content %}
+
+<!-- user logged in  -->
+{% if user.is_authenticated %}
+<!-- <h1>Hello {{ user.username }}!</h1> -->
+<div class="row">
+  <!-- <div class="pull-left" id="label">PRODUCTS</div> -->
+  <div class="pull-right" id="welcome">HELLO, {{ user.username }}! <a class="btn btn-warning btn-sm" href="{% url 'logout' %}">LOGOUT</a></div>
+</div>
+
+    <div class="row">
+      <p class="page-header">
+        <a class="hover" href="{% url 'collections' %}"id={% if 'collections' in request.path %}"active"{% endif %}
+        >{% trans "View by Collection" %}
+          </a>
+        /
+        <a class ="hover" href="{% url 'categories' %}"id={% if 'categories' in request.path %}"active"{% endif %}
+        >{% trans "View by Category" %}</a>
+    </div>
+    {% if object_list %}
+    <div class="row">
+      <div class="col-lg-12">
+        {% for gallery in object_list %}
+          <a id="a_wrapper" class="gallery-sample" href="{{ gallery.get_absolute_url }}">
+            <img src="{{ gallery.sample.image |thumbnail_url:'thumbnail' }}" alt="{{ gallery.title }}">
+            <p class="text">{{ gallery.title }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% else %}
+    <div class="row">
+      {% trans "No galleries were found" %}.
+    </div>
+    {% endif %}
+
+
+
+
+<!-- user not logged in -->
+{% else %}
+<a class="btn btn-primary" href="{% url 'login' %}">Log in</a>
+
+<a class="btn btn-info" href="{% url 'register' %}">Register</a>
+{% endif %}
+{% endblock %}

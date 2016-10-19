@@ -18,7 +18,8 @@
       <ul class="nav navbar-nav"></ul>
       <ul class="nav navbar-nav navbar-right">
         <li class={% if request.path == '/' %}"active"{% endif %}><a href="{% url 'index' %}">HOME</a></li>
-        <li><a href="#">PRODUCTS</a></li>
+        <li class={% if 'collections' in request.path %}"active"{% elif 'categories' in request.path %}"active"{% elif 'product' in request.path %}"active"{% endif %}>
+          <a href="{% url 'collections' %}">PRODUCTS</a></li>
         <li class={% if request.path == '/concepts/' %}"active"{% endif %}><a href="{% url 'concepts' %}">CONCEPTS</a></li>
         <li class={% if request.path == '/about/' %}"active"{% endif %}><a href="{% url 'about' %}">ABOUT US</a></li>
         <li class={% if request.path == '/contact/' %}"active"{% endif %}><a href="{% url 'contact' %}">CONTACT</a></li>
