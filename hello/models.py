@@ -13,8 +13,8 @@ from django.utils.safestring import mark_safe
 from django.utils.timezone import now
 
 # from autoslug import AutoSlugField
-# from easy_thumbnails.files import get_thumbnailer
-# from easy_thumbnails.fields import ThumbnailerImageField
+from easy_thumbnails.files import get_thumbnailer
+from easy_thumbnails.fields import ThumbnailerImageField
 # from sortedm2m.fields import SortedManyToManyField
 
 from .managers import GalleryQuerySet, PhotoQuerySet
@@ -38,8 +38,7 @@ class Inv_User(models.Model):
         return self.user.username
 
 class ImageModel(models.Model):
-    # image = ThumbnailerImageField(
-    image = models.ImageField(
+    image = ThumbnailerImageField(
         'image',
         max_length=100,
         upload_to='photos'
