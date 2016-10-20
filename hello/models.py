@@ -14,6 +14,7 @@ from django.utils.timezone import now
 
 # from autoslug import AutoSlugField
 from sorl.thumbnail import get_thumbnail
+from sorl.thumbnail import ImageField
 # from sortedm2m.fields import SortedManyToManyField
 
 from .managers import GalleryQuerySet, PhotoQuerySet
@@ -37,7 +38,7 @@ class Inv_User(models.Model):
         return self.user.username
 
 class ImageModel(models.Model):
-    image = models.ImageField(
+    image = ImageField(
         'image',
         max_length=100,
         upload_to='photos'
