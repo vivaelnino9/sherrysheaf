@@ -12,8 +12,10 @@
     <div class="row">
         <div class="col-md-6">
 		    {% if object.caption %}<p>{{ object.caption|safe }}</p>{% endif %}
-        <a  href="{{ photo.image.url }}">
-             <img src="{{ photo.image|thumbnail_url:'display' }}" class="thumbnail" alt="{{ photo.title }}">
+        <a href="{{ photo.image.url }}">
+          {% thumbnail photo.image "300x150" crop="center" as im %}
+              <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ photo.title }}">
+          {% endthumbnail %}
         </a>
         </div>
 				</table>

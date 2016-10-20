@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hello',
     'bootstrap3',
-    'easy_thumbnails',
+    'sorl.thumbnail',
+    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -112,13 +113,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-THUMBNAIL_ALIASES = {
-    '': {
-        'thumbnail': {'size': (250, 180), 'crop': False},
-        'admin_thumbnail': {'size': (75, 25), 'crop': True},
-        'display': {'size': (1000, 600), 'crop': False}
-    },
-}
 
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -145,5 +139,7 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ.get('S3_BUCKET_NAME')
+
+MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'

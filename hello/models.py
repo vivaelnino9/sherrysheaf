@@ -13,8 +13,7 @@ from django.utils.safestring import mark_safe
 from django.utils.timezone import now
 
 # from autoslug import AutoSlugField
-from easy_thumbnails.files import get_thumbnailer
-from easy_thumbnails.fields import ThumbnailerImageField
+from sorl.thumbnail import get_thumbnail
 # from sortedm2m.fields import SortedManyToManyField
 
 from .managers import GalleryQuerySet, PhotoQuerySet
@@ -38,7 +37,7 @@ class Inv_User(models.Model):
         return self.user.username
 
 class ImageModel(models.Model):
-    image = ThumbnailerImageField(
+    image = models.ImageField(
         'image',
         max_length=100,
         upload_to='photos'
@@ -52,9 +51,9 @@ class ImageModel(models.Model):
         abstract = True
 
     def admin_thumbnail(self):
-        admin_thumbnail_url = get_thumbnailer(self.image)['admin_thumbnail'].url
+        im = get_thumbnail(self.image, '60x40', crop='center', quality=99)
         return mark_safe('<a href="%s"><img src="%s"></a>' % \
-            (self.get_absolute_url(), admin_thumbnail_url))
+            (self.get_absolute_url(), im.url))
     admin_thumbnail.short_description = 'Thumbnail'
 
     def image_filename(self):

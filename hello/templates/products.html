@@ -30,7 +30,9 @@
       <div class="col-lg-12">
         {% for gallery in object_list %}
           <a id="a_wrapper" class="gallery-sample" href="{{ gallery.get_absolute_url }}">
-            <img src="{{ gallery.sample.image |thumbnail_url:'thumbnail' }}" alt="{{ gallery.title }}">
+            {% thumbnail gallery.sample.image "250x180" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ gallery.title }}">
+            {% endthumbnail %}
             <p class="text">{{ gallery.title }}</p>
           </a>
         {% endfor %}

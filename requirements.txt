@@ -1,8 +1,12 @@
+boto==2.43.0
 dj-database-url==0.4.0
 Django==1.9.2
+django-appconf==1.0.2
 django-bootstrap3==7.1.0
-easy-thumbnails==2.3
+django-storages==1.5.1
 gunicorn==19.4.5
+pilkit==1.1.13
 Pillow==3.4.2
 psycopg2==2.6.1
+sorl-thumbnail==12.3
 whitenoise==2.0.6

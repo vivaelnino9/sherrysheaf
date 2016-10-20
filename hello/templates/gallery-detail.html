@@ -29,7 +29,9 @@
 		<div class="col-md-12" >
 		    {% for photo in gallery.photos.all %}
 		        <a id="title" href="{{ photo.get_absolute_url }}">
-							<img id="img_wrapper" src="{{ photo.image|thumbnail_url:'thumbnail' }}" class="thumbnail" alt="{{ photo.title }}">
+							{% thumbnail photo.image "200x200" crop="center" as im %}
+    						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ photo.title }}">
+							{% endthumbnail %}
 								 <p class="text">{{ photo.title }}</p>
 		        </a>
 		    {% endfor %}
