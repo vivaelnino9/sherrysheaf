@@ -143,3 +143,4 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ['AWS_STORAGE_BUCKET_NA
 
 MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+MEDIA_ROOT = MEDIA_URL
