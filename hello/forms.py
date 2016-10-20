@@ -1,3 +1,4 @@
+import logging
 import os
 import zipfile
 try:
@@ -23,7 +24,7 @@ from io import BytesIO
 
 from .models import User, Inv_User, Photo, Gallery
 
-
+logger = logging.getLogger('inv_app.forms')
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
