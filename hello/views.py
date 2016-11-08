@@ -131,7 +131,7 @@ def profile(request, inv_user_id):
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('product'))
+    return HttpResponseRedirect(reverse('collections'))
 
 
 class CollectionListView(ListView):
